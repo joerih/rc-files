@@ -1,0 +1,164 @@
+" Be iMproved.
+set nocompatible
+
+" Somewhat fragile way to get the location of the Vim config files.
+let g:config_base = split(&runtimepath, ',')[0]
+
+" ------------------------------------------------------------------------------
+"  Vundle settings
+" ------------------------------------------------------------------------------
+
+" Required for Vundle.
+filetype off
+
+" Set the runtime path to include Vundle and initialize.
+let s:bundle_path = g:config_base . '/bundle'
+let s:vundle_path = s:bundle_path . '/Vundle.vim'
+let &runtimepath .= ',' . s:vundle_path
+call vundle#begin(s:bundle_path)
+
+" Let Vundle manage Vundle, required.
+Plugin 'VundleVim/Vundle.vim'
+
+" Load some plugins from GitHub.
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'groenewege/vim-less'
+Plugin 'leafgarland/typescript-vim'
+
+" Required for Vundle.
+call vundle#end()
+filetype plugin indent on
+
+" ------------------------------------------------------------------------------
+"  File explorer configuration
+" ------------------------------------------------------------------------------
+
+let g:NERDTreeDirArrows = 1
+let NERDTreeMinimalUI = 1
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+
+" Close the file explorer when vim quits, because keeping it open interferes
+" with restoring the session when vim is started again.
+autocmd VimLeave * NERDTreeClose
+
+" Disable the Ctrl+PageUp/PageDown keymap for the file explorer.
+autocmd BufEnter File_Explorer_* nunmap <C-PageUp>
+autocmd BufEnter File_Explorer_* nunmap <C-PageDown>
+autocmd BufLeave File_Explorer_* nnoremap <silent> <C-PageUp> :bprevious!<CR>
+autocmd BufLeave File_Explorer_* nnoremap <silent> <C-PageDown> :bnext!<CR>
+
+" ------------------------------------------------------------------------------
+"  Misc configuration
+" ------------------------------------------------------------------------------
+
+" Display incomplete commands.
+set showcmd
+
+" Enable autoindenting.
+set autoindent
+
+" Sync with the system clipboard.
+set clipboard=unnamed
+
+" Set ttimeoutlen to shorten the pause when leaving insert mode.
+set timeout timeoutlen=1000 ttimeoutlen=50
+
+" Move the viminfo file to the vim configuration directory.
+let &viminfo .= ',n' . g:config_base . '/viminfo'
+
+" Allow changed buffers to be hidden (they will show in the tab line of
+" vim-airline anyway). This prevents a split window to be created when
+" starting vim with --remote while there are already changed buffers present.
+set hidden
+
+" Store the swap files in a central directory instead of alongside the edited
+" files.
+let &directory = g:config_base . '/swap//'
+
+" Map keys to switch between buffers.
+nnoremap <silent> <C-PageUp> :bprevious!<CR>
+nnoremap <silent> <C-PageDown> :bnext!<CR>
+
+" ------------------------------------------------------------------------------
+"  Airline configuration
+" ------------------------------------------------------------------------------
+
+set encoding=utf-8
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set noshowmode
+
+" ------------------------------------------------------------------------------
+"  Appearance
+" ------------------------------------------------------------------------------
+
+" Show line numbers in the left margin.
+set number
+
+" Switch on syntax highlighting.
+syntax enable
+
+" Set the colorscheme.
+set background=dark
+colorscheme lucius
+LuciusBlackLowContrast
+
+" Show tab characters and leading whitespace.
+set list listchars=tab:➝➝,trail:·
+
+" Don't show the intro message when starting Vim without a filename.
+set shortmess+=I
+
+" ------------------------------------------------------------------------------
+"  Search settings
+" ------------------------------------------------------------------------------
+
+" Do incremental searching.
+set incsearch
+
+" Switch on smartcase search and pattern highlighting.
+set hlsearch
+set ignorecase
+set smartcase
+
+" ------------------------------------------------------------------------------
+"  Backup configuration
+" ------------------------------------------------------------------------------
+
+set backup
+set backupext=.bak
+let &backupdir = g:config_base . '/backup//'
+
+" ------------------------------------------------------------------------------
+"  Undo file settings
+" ------------------------------------------------------------------------------
+
+set undofile
+let &undodir = g:config_base . '/undo//'
+
+" ------------------------------------------------------------------------------
+"  Tab settings
+" ------------------------------------------------------------------------------
+
+set softtabstop=3
+set expandtab
+set shiftwidth=3
+
+" ------------------------------------------------------------------------------
+"  Misc keyboard mappings
+" ------------------------------------------------------------------------------
+
+" Shortcut for formatting XML files.
+nnoremap <silent> <F3> :filetype indent on<CR>:set shiftwidth=2<CR>:set ft=xml<CR>:%s/></>\r</g<CR>:0<CR>=G<CR>:nohl<CR>
+
+" Shortcut for searching noise in subtitles.
+nnoremap <silent> <F4> /downl\\|subt\\|verta\\|sync\\|rip\\|onderti\\|bewerkt\\|release<CR>
+
+" Shortcut for formatting PHP files.
+nnoremap <silent> <F5> :%s/\/\/.*$//e<CR>:%s/{/\r{\r/e<CR>:%s/}/\r}\r/e<CR>:%s/^\s\+//e<CR>:%s/\s\+$//e<CR>:%s/^\n//e<CR>:%s/\(if\\|for\)(/\1 (/ge<CR>:%s/\(\S\)?>/\1 ?>/ge<CR>:%s/\(\S\)\(==\\|!=\\|&&\\|\|\|\\|\.=\)/\1 \2/ge<CR>:%s/\(==\\|!=\\|&&\\|\|\|\\|\.=\)\(\S\)/\1 \2/ge<CR>:%s/\($\<\h\w*\>\)=\([^=]\)/\1 = \2/ge<CR>gg=G
+

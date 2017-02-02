@@ -18,3 +18,7 @@
 !/.tmux.conf
 !/.screenrc
 
+# Don't ignore some files in the '.vim' directory.
+!/.vim/
+/.vim/viminfo
+
