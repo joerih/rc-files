@@ -16,4 +16,5 @@
 # Don't ignore some other rc files.
 !/.tigrc
 !/.tmux.conf
+!/.screenrc
 
