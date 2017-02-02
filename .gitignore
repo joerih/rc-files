@@ -23,3 +23,6 @@
 !/.vim/
 /.vim/viminfo
 
+# Don't ignore cygwin configuration files.
+!/.minttyrc
+
