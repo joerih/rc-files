@@ -4,12 +4,15 @@
 
 # Don't ignore the files in the '.bash' directory.
 # Except for the 'compiler' file, since this is machine specific.
-!.bash/
-.bash/compiler
+!/.bash/
+/.bash/compiler
 
 # Don't ignore bash configuration files.
-!.bash_logout
-!.bash_profile
-!.bashrc
-!.dir_colors
+!/.bash_logout
+!/.bash_profile
+!/.bashrc
+!/.dir_colors
+
+# Don't ignore some other rc files.
+!/.tigrc
 
