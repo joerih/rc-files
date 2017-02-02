@@ -1,0 +1,15 @@
+# LFS settings.
+export LFS_SRC=~/lfs
+export PATH=$LFS_SRC/bin:$PATH
+
+# LFS aliases.
+alias log1='less +G /lfs/root/install_stage_1.log'
+alias log2='less +G /lfs/root/install_stage_2.log'
+alias log3='less +G /lfs/root/install_stage_3.log'
+alias log4='less +G /lfs/root/install_stage_4.log'
+alias logt1='tail -f /lfs/root/install_stage_1.log'
+alias logt2='tail -f /lfs/root/install_stage_2.log'
+alias logt3='tail -f /lfs/root/install_stage_3.log'
+alias logt4='tail -f /lfs/root/install_stage_4.log'
+alias flfs='find -L $LFS_SRC | grep -v obsolete | grep -i'
+
