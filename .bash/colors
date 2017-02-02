@@ -1,0 +1,48 @@
+# Color definitions.
+COLOR_DEFAULT="[0;39m"
+COLOR_BLACK="[0;30m"
+COLOR_RED="[0;31m"
+COLOR_GREEN="[0;32m"
+COLOR_YELLOW="[0;33m"
+COLOR_BLUE="[0;34m"
+COLOR_MAGENTA="[0;35m"
+COLOR_CYAN="[0;36m"
+COLOR_WHITE="[0;37m"
+PROMPT_COLOR_DEFAULT="\[${COLOR_DEFAULT}\]"
+PROMPT_COLOR_BLACK="\[${COLOR_BLACK}\]"
+PROMPT_COLOR_RED="\[${COLOR_RED}\]"
+PROMPT_COLOR_GREEN="\[${COLOR_GREEN}\]"
+PROMPT_COLOR_YELLOW="\[${COLOR_YELLOW}\]"
+PROMPT_COLOR_BLUE="\[${COLOR_BLUE}\]"
+PROMPT_COLOR_MAGENTA="\[${COLOR_MAGENTA}\]"
+PROMPT_COLOR_CYAN="\[${COLOR_CYAN}\]"
+PROMPT_COLOR_WHITE="\[${COLOR_WHITE}\]"
+
+# Set colors for ls.
+eval `dircolors -b ~/.dir_colors`
+
+# Set colors for grep.
+export GREP_COLOR='1;33'
+
+# Set colors for man pages.
+#  0 - black
+#  1 - red
+#  2 - green
+#  3 - yellow
+#  4 - blue
+#  5 - magenta
+#  6 - cyan
+#  7 - white
+export GROFF_NO_SGR=1
+export LESS="-i -M -R"
+# Display green text instead of bold text.
+export LESS_TERMCAP_md=$(tput setaf 2)
+export LESS_TERMCAP_me=$(tput sgr0)
+# Display blue text instead of underlined text.
+export LESS_TERMCAP_us=$(tput setaf 12)
+export LESS_TERMCAP_ue=$(tput sgr0)
+# Use yellow on grey for standout (reverse video) text.
+# This is used for the status bar and search results.
+export LESS_TERMCAP_so=$(tput setaf 3; tput setab 0)
+export LESS_TERMCAP_se=$(tput sgr0)
+

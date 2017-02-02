@@ -1,0 +1,56 @@
+function git_is_repository
+{
+   [[ -d .git ]] || git rev-parse --is-inside-work-tree >/dev/null 2>&1 && [[ `readlink -f $(git rev-parse --git-dir)` != `readlink -f ~/.git` ]]
+}
+
+function git_get_branch
+{
+   git_is_repository && git symbolic-ref --short -q HEAD
+}
+
+function git_has_untracked_files
+{
+   local untracked_files
+   if git_is_repository; then
+      untracked_files=$(git ls-files --others --exclude-standard)
+   fi
+   [ -n "$untracked_files" ]
+}
+
+function git_has_unstaged_files
+{
+   local unstaged_files
+   if git_is_repository; then
+      if ! git diff --quiet 2>/dev/null; then
+         unstaged_files="true"
+      fi
+   fi
+   [ -n "$unstaged_files" ]
+}
+
+function git_has_staged_files
+{
+   local staged_files
+   if git_is_repository; then
+      if ! git diff --quiet --cached 2>/dev/null; then
+         staged_files="true"
+      fi
+   fi
+   [ -n "$staged_files" ]
+}
+
+function git_is_repo_dirty
+{
+   [ -n "$(git status -suno)" ]
+}
+
+function git_is_on_branch # (branch_name)
+{
+   [ "$(git_get_branch)" == "$1" ]
+}
+
+function git_branch_exists # (branch_name)
+{
+   [ -n "$(git show-ref "$1")" ]
+}
+
