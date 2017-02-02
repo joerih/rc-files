@@ -1,0 +1,15 @@
+# Ignore all files and directories.
+/*
+/*/
+
+# Don't ignore the files in the '.bash' directory.
+# Except for the 'compiler' file, since this is machine specific.
+!.bash/
+.bash/compiler
+
+# Don't ignore bash configuration files.
+!.bash_logout
+!.bash_profile
+!.bashrc
+!.dir_colors
+

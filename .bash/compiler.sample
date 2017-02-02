@@ -1,0 +1,5 @@
+# Set the optimization flags for gcc.
+export OPTIMIZATION="-march=amdfam10 -O2"
+export CFLAGS=$OPTIMIZATION
+export CXXFLAGS=$OPTIMIZATION
+

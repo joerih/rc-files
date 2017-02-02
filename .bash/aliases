@@ -1,0 +1,10 @@
+alias ls='ls --color=auto'
+alias dir='ls -l'
+alias rm='rm -i'
+alias less='less -i -M -R'
+alias grep='grep --color=auto'
+alias tig='tig --all'
+alias df='df -H -T -a -x tmpfs -x sysfs -x proc -x rpc_pipefs -x devpts -x binfmt_misc -x nfsd'
+alias dmesg='dmesg | log-abstime'
+alias root='sudo -i'
+

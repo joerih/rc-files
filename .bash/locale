@@ -1,0 +1,9 @@
+# Set the locale.
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# Put the keyboard and virtual consoles in unicode mode.
+if [[ $TERM == 'linux' && `tty` != 'not a tty' ]]; then
+   unicode_start
+fi
+
