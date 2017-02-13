@@ -17,6 +17,7 @@
 !/.tigrc
 !/.tmux.conf
 !/.screenrc
+!/.selected_editor
 
 # Don't ignore some files in the '.vim' directory.
 !/.vim/
