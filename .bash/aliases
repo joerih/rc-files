@@ -5,6 +5,6 @@ alias less='less -i -M -R'
 alias grep='grep --color=auto'
 alias tig='tig --all'
 alias df='df -H -T -a -x tmpfs -x sysfs -x proc -x rpc_pipefs -x devpts -x binfmt_misc -x nfsd'
-alias dmesg='dmesg | log-abstime'
+alias dmesg='dmesg -T'
 alias root='sudo -i'
 
