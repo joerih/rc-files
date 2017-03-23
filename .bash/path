@@ -6,11 +6,17 @@ if [ "`id -u`" = "0" ]; then
 else
    PATH="$PATH:."
 fi
+
+# Add Node and the Node Version Manager to the path.
+PATH="$PATH:$NVM_HOME:$NVM_SYMLINK"
+
+# Add MSBuild and Visual Studio Code to the path.
+MSBUILDPATH=`cygpath "C:\Program Files (x86)\MSBuild\14.0\Bin"`
+VSCODEPATH=`cygpath "C:\Program Files (x86)\Microsoft VS Code\bin"`
+PATH="$PATH:$VSCODEPATH:$MSBUILDPATH"
+
 export PATH
 
 # Some other path settings.
 export MANPATH="/usr/share/man"
-export PKG_CONFIG_PATH="/usr/share/pkgconfig"
-export SGML_CATALOG_FILES="/etc/sgml/catalog:/etc/xml/catalog"
-export INPUTRC="/etc/inputrc"
 
