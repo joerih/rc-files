@@ -1,16 +1,29 @@
 # Create and export the search path. For the root user the sbin directories
 # are included. For non-root users, the current directory is included.
-PATH="/bin:/usr/bin:/usr/local/bin:${HOME}/.bin:${HOME}/.local/bin"
+PATH="/bin:/usr/bin:/usr/local/bin:/mingw64/bin:${HOME}/.bin:${HOME}/.local/bin"
 if [ "`id -u`" = "0" ]; then
    PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 else
    PATH="$PATH:."
 fi
+
+# Add .NET tools to the path.
+DOTNETPATH="/C/Program Files/dotnet"
+DOTNETTOOLSPATH="$USERPROFILE/.dotnet/tools"
+MSBUILDPATH="/C/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin"
+NUNITPATH="/C/Program Files (x86)/NUnit.org/nunit-console"
+
+# Add Visual Studio Code to the path.
+VSCODEPATH="$LOCALAPPDATA/Programs/Microsoft VS Code"
+
+# Add node.js tools to the path.
+NODEPATH="/C/Program Files/nodejs"
+NPMPATH="$APPDATA/npm"
+
+PATH="$PATH:$DOTNETPATH:$DOTNETTOOLSPATH:$MSBUILDPATH:$NUNITPATH:$VSCODEPATH:$NODEPATH:$NPMPATH"
+
 export PATH
 
 # Some other path settings.
 export MANPATH="/usr/share/man"
-export PKG_CONFIG_PATH="/usr/share/pkgconfig"
-export SGML_CATALOG_FILES="/etc/sgml/catalog:/etc/xml/catalog"
-export INPUTRC="/etc/inputrc"
 
