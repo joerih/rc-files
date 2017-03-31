@@ -3,6 +3,5 @@
 
 # Import all scripts from the .bash folder.
 for file in ~/.bash/*; do
-   [[ ! ${file} =~ ^.*\.sample$ ]] && source ${file}
+   [[ ! ${file} =~ ^.*\.example$ ]] && source ${file}
 done
-

@@ -5,7 +5,7 @@
 # Don't ignore the files in the '.bash' directory.
 # Except for the 'compiler' file, since this is machine specific.
 !/.bash/
-/.bash/compiler
+/.bash/*.local
 
 # Don't ignore bash configuration files.
 !/.bash_logout
