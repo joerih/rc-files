@@ -9,12 +9,7 @@ function prompt_command()
 
 function set_title()
 {
-   local GIT_BRANCH=$(git_get_branch)
-   if [ -n "$GIT_BRANCH" ]; then
-      local TITLE_GIT="$GIT_BRANCH•"
-   fi
-   local TITLE_DIRECTORY=`pwd`
-   local TITLE="Terminal ($TITLE_GIT$TITLE_DIRECTORY)"
+   local TITLE="Terminal"
    echo -ne "\e]0;$TITLE\a"
 }
 
