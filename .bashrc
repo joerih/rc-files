@@ -5,3 +5,5 @@
 for file in ~/.bash/*; do
    [[ ! ${file} =~ ^.*\.example$ ]] && source ${file}
 done
+
+cd ~
