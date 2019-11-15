@@ -10,55 +10,55 @@ function prompt_command()
 function set_title()
 {
    local TITLE="Terminal"
-   echo -ne "\e]0;$TITLE\a"
+   echo -ne "\033]0;${TITLE}\007"
 }
 
 function set_prompt()
 {
    if [ -n "$STY" ]; then
-      local PROMPT_SCREEN="$PROMPT_COLOR_RED⊡"
+      local PROMPT_SCREEN="${PROMPT_COLOR_RED}⊡"
    fi
 
    if [ "`id -u`" = "0" ]; then
-      local PROMPT_USERNAME="$PROMPT_COLOR_RED\u$PROMPT_COLOR_DEFAULT•"
+      local PROMPT_USERNAME="${PROMPT_COLOR_RED}\u${PROMPT_COLOR_DEFAULT}•"
    else
-      local PROMPT_USERNAME="$PROMPT_COLOR_GREEN\u$PROMPT_COLOR_DEFAULT•"
+      local PROMPT_USERNAME="${PROMPT_COLOR_GREEN}\u${PROMPT_COLOR_DEFAULT}•"
    fi
 
-   local PROMPT_HOSTNAME="$PROMPT_COLOR_BLUE\h$PROMPT_COLOR_DEFAULT•"
+   local PROMPT_HOSTNAME="${PROMPT_COLOR_BLUE}\h${PROMPT_COLOR_DEFAULT}•"
 
    if git_is_repository; then
       local GIT_BRANCH=$(git_get_branch)
       if [ -n "$GIT_BRANCH" ]; then
-         local PROMPT_GIT="$PROMPT_COLOR_CYAN$GIT_BRANCH$PROMPT_COLOR_DEFAULT"
+         local PROMPT_GIT="${PROMPT_COLOR_CYAN}${GIT_BRANCH}${PROMPT_COLOR_DEFAULT}"
       else
-         local PROMPT_GIT="${PROMPT_COLOR_RED}detached head$PROMPT_COLOR_DEFAULT"
+         local PROMPT_GIT="${PROMPT_COLOR_RED}detached head${PROMPT_COLOR_DEFAULT}"
       fi
       #if git_is_repo_dirty; then
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_RED•$PROMPT_COLOR_DEFAULT"
+      #   local PROMPT_GIT="${PROMPT_GIT}${PROMPT_COLOR_RED}•${PROMPT_COLOR_DEFAULT}"
       #else
-         local PROMPT_GIT="$PROMPT_GIT•"
+         local PROMPT_GIT="${PROMPT_GIT}•"
       #fi
       #if git_has_untracked_files; then
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_RED!$PROMPT_COLOR_DEFAULT"
+      #   local PROMPT_GIT="${PROMPT_GIT}${PROMPT_COLOR_RED}!${PROMPT_COLOR_DEFAULT}"
       #else
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_BLACK!$PROMPT_COLOR_DEFAULT"
+      #   local PROMPT_GIT="${PROMPT_GIT}${PROMPT_COLOR_BLACK}!${PROMPT_COLOR_DEFAULT}"
       #fi
       #if git_has_unstaged_files; then
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_YELLOW!$PROMPT_COLOR_DEFAULT"
+      #   local PROMPT_GIT="${PROMPT_GIT${PROMPT_COLOR_YELLOW!${PROMPT_COLOR_DEFAULT"
       #else
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_BLACK!$PROMPT_COLOR_DEFAULT"
+      #   local PROMPT_GIT="${PROMPT_GIT${PROMPT_COLOR_BLACK!${PROMPT_COLOR_DEFAULT"
       #fi
       #if git_has_staged_files; then
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_GREEN!$PROMPT_COLOR_DEFAULT•"
+      #   local PROMPT_GIT="${PROMPT_GIT}${PROMPT_COLOR_GREEN}!${PROMPT_COLOR_DEFAULT}•"
       #else
-      #   local PROMPT_GIT="$PROMPT_GIT$PROMPT_COLOR_BLACK!$PROMPT_COLOR_DEFAULT•"
+      #   local PROMPT_GIT="${PROMPT_GIT}${PROMPT_COLOR_BLACK}!${PROMPT_COLOR_DEFAULT}•"
       #fi
    fi
 
-   local PROMPT_DIRECTORY="$PROMPT_COLOR_YELLOW\w"
+   local PROMPT_DIRECTORY="${PROMPT_COLOR_YELLOW}\w"
 
-   PS1="$PROMPT_SCREEN$PROMPT_COLOR_DEFAULT❲$PROMPT_USERNAME$PROMPT_HOSTNAME$PROMPT_GIT$PROMPT_DIRECTORY$PROMPT_COLOR_DEFAULT❳ "
+   PS1="${PROMPT_SCREEN}${PROMPT_COLOR_DEFAULT}❲${PROMPT_USERNAME}${PROMPT_HOSTNAME}${PROMPT_GIT}${PROMPT_DIRECTORY}${PROMPT_COLOR_DEFAULT}❳ "
 }
 
 # Set the prompt definition.
