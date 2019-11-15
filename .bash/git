@@ -1,6 +1,6 @@
 function git_is_repository
 {
-   [[ -d .git ]] || git rev-parse --is-inside-work-tree >/dev/null 2>&1 && [[ `readlink -f $(git rev-parse --git-dir)` != `readlink -f ~/.git` ]]
+   [[ -d .git ]] || git rev-parse --is-inside-work-tree >/dev/null 2>&1 && [[ `greadlink -f $(git rev-parse --git-dir)` != `greadlink -f ~/.git` ]]
 }
 
 function git_get_branch
