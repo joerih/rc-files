@@ -22,7 +22,7 @@ PROMPT_COLOR_CYAN="\[${COLOR_CYAN}\]"
 PROMPT_COLOR_WHITE="\[${COLOR_WHITE}\]"
 
 # Set colors for ls.
-eval `dircolors -b ~/.dir_colors`
+eval `gdircolors -b ~/.dir_colors`
 
 # Set colors for grep.
 export GREP_COLOR='1;33'
