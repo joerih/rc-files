@@ -1,6 +1,6 @@
 # Create and export the search path. For the root user the sbin directories
 # are included. For non-root users, the current directory is included.
-PATH="/bin:/usr/bin:/usr/local/bin:${HOME}/.bin"
+PATH="/bin:/usr/bin:/usr/local/bin:${HOME}/.bin:${HOME}/.local/bin"
 if [ "`id -u`" = "0" ]; then
    PATH=/sbin:/usr/sbin:/usr/local/sbin:$PATH
 else
