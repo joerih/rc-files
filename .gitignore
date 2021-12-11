@@ -2,22 +2,23 @@
 /*
 /*/
 
-# Don't ignore the files in the '.bash' directory.
-# Except for the 'compiler' file, since this is machine specific.
-!/.bash/
-/.bash/*.local
+# Don't ignore the files in the '.bash' directory, except for files with names
+# that end with '.local', to allow for machine-specific configurations.
 
-# Don't ignore bash configuration files.
-!/.bash_logout
-!/.bash_profile
-!/.bashrc
+!/.zsh/
+/.zsh/*.local
+
+# Don't ignore zsh configuration files.
+!/.zlogin
+!/.zlogout
+!/.zshenv
+!/.zshrc
 !/.dir_colors
 
 # Don't ignore some other rc files.
 !/.tigrc
 !/.tmux.conf
 !/.screenrc
-!/.selected_editor
 
 # Don't ignore some files in the '.vim' directory.
 !/.vim/

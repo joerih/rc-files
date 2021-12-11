@@ -2,9 +2,6 @@ function prompt_command()
 {
    set_title
    set_prompt
-
-   # Whenever displaying the prompt, write the previous command line to disk.
-   history -a
 }
 
 function set_title()
@@ -20,12 +17,12 @@ function set_prompt()
    fi
 
    if [ "`id -u`" = "0" ]; then
-      local PROMPT_USERNAME="${PROMPT_COLOR_RED}\u${PROMPT_COLOR_DEFAULT}•"
+      local PROMPT_USERNAME="${PROMPT_COLOR_RED}%n${PROMPT_COLOR_DEFAULT}•"
    else
-      local PROMPT_USERNAME="${PROMPT_COLOR_GREEN}\u${PROMPT_COLOR_DEFAULT}•"
+      local PROMPT_USERNAME="${PROMPT_COLOR_GREEN}%n${PROMPT_COLOR_DEFAULT}•"
    fi
 
-   local PROMPT_HOSTNAME="${PROMPT_COLOR_BLUE}${HOSTNAME,,}${PROMPT_COLOR_DEFAULT}•"
+   local PROMPT_HOSTNAME="${PROMPT_COLOR_BLUE}%m${PROMPT_COLOR_DEFAULT}•"
 
    if git_is_repository; then
       local GIT_BRANCH=$(git_get_branch)
@@ -56,11 +53,11 @@ function set_prompt()
       #fi
    fi
 
-   local PROMPT_DIRECTORY="${PROMPT_COLOR_YELLOW}\w"
+   local PROMPT_DIRECTORY="${PROMPT_COLOR_YELLOW}%~"
 
-   PS1="${PROMPT_SCREEN}${PROMPT_COLOR_DEFAULT}❲${PROMPT_USERNAME}${PROMPT_HOSTNAME}${PROMPT_GIT}${PROMPT_DIRECTORY}${PROMPT_COLOR_DEFAULT}❳ "
+   PROMPT="${PROMPT_SCREEN}${PROMPT_COLOR_DEFAULT}❲${PROMPT_USERNAME}${PROMPT_HOSTNAME}${PROMPT_GIT}${PROMPT_DIRECTORY}${PROMPT_COLOR_DEFAULT}❳ "
 }
 
 # Set the prompt definition.
-PROMPT_COMMAND=prompt_command
+precmd() { eval prompt_command }
 
