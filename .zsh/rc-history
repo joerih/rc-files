@@ -1,0 +1,15 @@
+# Share the history across multiple zsh sessions.
+setopt SHARE_HISTORY
+
+# Append rather than overwrite the history on disk.
+setopt APPEND_HISTORY
+
+# Add commands to the history immediately instead of when the shell exits.
+setopt INC_APPEND_HISTORY
+
+# Prevent duplicates in the history.
+setopt HIST_IGNORE_ALL_DUPS
+
+# Do not add certain commands to the history file on disk.
+export HISTORY_IGNORE="(ls|cd|dir|exit|history|fg|bg)"
+
