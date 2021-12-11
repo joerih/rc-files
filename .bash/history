@@ -1,9 +1,0 @@
-# Append rather than overwrite the history on disk.
-shopt -s histappend
-
-# Prevent duplicates in the history.
-export HISTCONTROL=erasedups
-
-# Do not add certain commands to the history.
-export HISTIGNORE='&:ls:cd:dir:exit:history:[fb]g'
-
