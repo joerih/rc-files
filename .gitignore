@@ -19,6 +19,7 @@
 !/.tigrc
 !/.tmux.conf
 !/.screenrc
+!/.hyper.js
 
 # Don't ignore some files in the '.vim' directory.
 !/.vim/
