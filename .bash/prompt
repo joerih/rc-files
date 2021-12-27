@@ -1,16 +1,9 @@
 function prompt_command()
 {
-   set_title
    set_prompt
 
    # Whenever displaying the prompt, write the previous command line to disk.
    history -a
-}
-
-function set_title()
-{
-   local TITLE="Terminal"
-   echo -ne "\033]0;${TITLE}\007"
 }
 
 function set_prompt()
