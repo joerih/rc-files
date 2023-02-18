@@ -1,25 +1,16 @@
-# Tell bash to not highlight pasted text.
-bind 'set enable-bracketed-paste off'
+# Load and execute the zsh 'colors' function.
+autoload -U colors && colors
 
-# Color definitions.
-COLOR_DEFAULT="[0;39m"
-COLOR_BLACK="[0;30m"
-COLOR_RED="[0;31m"
-COLOR_GREEN="[0;32m"
-COLOR_YELLOW="[0;33m"
-COLOR_BLUE="[0;34m"
-COLOR_MAGENTA="[0;35m"
-COLOR_CYAN="[0;36m"
-COLOR_WHITE="[0;37m"
-PROMPT_COLOR_DEFAULT="${COLOR_DEFAULT}"
-PROMPT_COLOR_BLACK="${COLOR_BLACK}"
-PROMPT_COLOR_RED="${COLOR_RED}"
-PROMPT_COLOR_GREEN="${COLOR_GREEN}"
-PROMPT_COLOR_YELLOW="${COLOR_YELLOW}"
-PROMPT_COLOR_BLUE="${COLOR_BLUE}"
-PROMPT_COLOR_MAGENTA="${COLOR_MAGENTA}"
-PROMPT_COLOR_CYAN="${COLOR_CYAN}"
-PROMPT_COLOR_WHITE="${COLOR_WHITE}"
+# Color definitions for the prompt.
+export PROMPT_COLOR_DEFAULT="%{$fg[default]%}"
+export PROMPT_COLOR_BLACK="%{$fg[black]%}"
+export PROMPT_COLOR_RED="%{$fg[red]%}"
+export PROMPT_COLOR_GREEN="%{$fg[green]%}"
+export PROMPT_COLOR_YELLOW="%{$fg[yellow]%}"
+export PROMPT_COLOR_BLUE="%{$fg[blue]%}"
+export PROMPT_COLOR_MAGENTA="%{$fg[magenta]%}"
+export PROMPT_COLOR_CYAN="%{$fg[cyan]%}"
+export PROMPT_COLOR_WHITE="%{$fg[white]%}"
 
 # Set colors for ls.
 eval `gdircolors -b ~/.dir_colors`
