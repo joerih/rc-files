@@ -25,7 +25,7 @@ function set_prompt()
       local PROMPT_USERNAME="${PROMPT_COLOR_GREEN}\u${PROMPT_COLOR_DEFAULT}•"
    fi
 
-   local PROMPT_HOSTNAME="${PROMPT_COLOR_BLUE}\h${PROMPT_COLOR_DEFAULT}•"
+   local PROMPT_HOSTNAME="${PROMPT_COLOR_BLUE}${HOSTNAME,,}${PROMPT_COLOR_DEFAULT}•"
 
    if git_is_repository; then
       local GIT_BRANCH=$(git_get_branch)
