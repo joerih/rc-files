@@ -1,6 +1,9 @@
 # Load and execute the zsh 'colors' function.
 autoload -U colors && colors
 
+# Tell zsh to not highlight pasted text.
+zle_highlight=('paste:none')
+
 # Color definitions for the prompt.
 export PROMPT_COLOR_DEFAULT="%{$fg[default]%}"
 export PROMPT_COLOR_BLACK="%{$fg[black]%}"
