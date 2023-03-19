@@ -141,8 +141,8 @@ module.exports = {
     // to load it and avoid it being `npm install`ed
     localPlugins: [],
     keymaps: {
-    // Example
-    // 'window:devtools': 'cmd+alt+o',
+        "window:zoom": "alt+shift+enter",
+        "window:toggleFullScreen": "command+shift+enter",
     },
 };
 //# sourceMappingURL=config-default.js.map
