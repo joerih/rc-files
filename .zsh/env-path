@@ -1,3 +1,7 @@
-PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin:${HOME}/Library/Python/3.8/bin"
+PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin"
 export PATH
+
+if [ -x /usr/libexec/path_helper ]; then
+   eval `/usr/libexec/path_helper -s`
+fi
 
