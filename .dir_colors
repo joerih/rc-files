@@ -150,27 +150,6 @@ EXEC                  01;32    # files with execute permission
 .svgz 01;35
 .mng  01;35
 .pcx  01;35
-.mov  01;35
-.mpg  01;35
-.mpeg 01;35
-.m2v  01;35
-.mkv  01;35
-.webm 01;35
-.ogm  01;35
-.mp4  01;35
-.m4v  01;35
-.mp4v 01;35
-.vob  01;35
-.qt   01;35
-.nuv  01;35
-.wmv  01;35
-.asf  01;35
-.rm   01;35
-.rmvb 01;35
-.flc  01;35
-.avi  01;35
-.fli  01;35
-.flv  01;35
 .gl   01;35
 .dl   01;35
 .xcf  01;35
@@ -201,7 +180,6 @@ EXEC                  01;32    # files with execute permission
 .avi  01;33
 .ogm  01;33
 .mov  01;33
-.MOV  01;33
 .asf  01;33
 .wmv  01;33
 .mp4  01;33
@@ -214,6 +192,7 @@ EXEC                  01;32    # files with execute permission
 .opus 01;33
 .spx  01;33
 .xspf 01;33
+.divx 01;33
 
 # documents
 .txt      01;37
