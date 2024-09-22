@@ -15,9 +15,6 @@ export PROMPT_COLOR_MAGENTA="%{$fg[magenta]%}"
 export PROMPT_COLOR_CYAN="%{$fg[cyan]%}"
 export PROMPT_COLOR_WHITE="%{$fg[white]%}"
 
-# Set colors for ls.
-eval `gdircolors -b ~/.dir_colors`
-
 # Set colors for grep.
 export GREP_COLOR='1;33'
 
