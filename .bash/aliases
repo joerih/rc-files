@@ -1,5 +1,5 @@
-alias ls='ls --color=auto'
-alias dir='ls -l'
+alias ls=eza
+alias dir='eza -lg --icons=auto --time-style=long-iso'
 alias rm='rm -i'
 alias less='less -i -M -R'
 alias grep='grep --color=auto'
