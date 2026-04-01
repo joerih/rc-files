@@ -1,8 +1,9 @@
-HOME_PATH="${HOME}/.bin:${HOME}/.local/bin"
-BREW_PATH="/opt/homebrew/bin:/opt/homebrew/opt/node@20/bin"
-export PATH="${PATH}:${BREW_PATH}:${HOME_PATH}"
-
 if [ -x /usr/libexec/path_helper ]; then
    eval `/usr/libexec/path_helper -s`
 fi
 
+HOME_PATH="${HOME}/.bin:${HOME}/.local/bin"
+BREW_PATH="/opt/homebrew/bin"
+PYTHON_PATH="${HOME}/Library/Python/3.9/bin"
+
+export PATH="${BREW_PATH}:${PYTHON_PATH}:${HOME_PATH}:${PATH}"
