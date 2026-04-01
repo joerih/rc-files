@@ -1,8 +1,8 @@
-HOME_PATH="${HOME}/.bin:${HOME}/.local/bin"
-BREW_PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
-export PATH="${PATH}:${BREW_PATH}:${HOME_PATH}"
-
 if [ -x /usr/libexec/path_helper ]; then
    eval `/usr/libexec/path_helper -s`
 fi
 
+BREW_PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
+HOME_PATH="${HOME}/.bin:${HOME}/.local/bin"
+
+export PATH="${BREW_PATH}:${HOME_PATH}:${PATH}"
