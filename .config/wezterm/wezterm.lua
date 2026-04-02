@@ -99,6 +99,19 @@ config.keys = {
   { mods = 'SUPER',     key = ',',          action = act.SpawnCommandInNewTab { cwd = wezterm.home_dir, args = { 'vi', wezterm.config_file } } },
 }
 
+-- Open two panes at startup
+--wezterm.on('gui-startup', function(cmd)
+--  local args = {}
+--  if cmd then
+--    args = cmd.args
+--  end
+--  local left_dir = wezterm.home_dir .. '/sub/dir/1'
+--  local right_dir = wezterm.home_dir .. '/sub/dir/2'
+--  local tab, left_pane, window = mux.spawn_window { cwd = left_dir, args = args }
+--  local right_pane = left_pane:split { size = 0.5, cwd = right_dir }
+--  left_pane:activate()
+--end)
+
 -- Format the tab bar
 wezterm.on('format-tab-title',
   function(tab, tabs, panes, config, hover, max_width)
