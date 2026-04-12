@@ -3,7 +3,7 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 HOME_PATH="${HOME}/.bin:${HOME}/.local/bin"
-BREW_PATH="/opt/homebrew/bin"
+BREW_PATH="/opt/homebrew/bin:/opt/homebrew/sbin"
 PYTHON_PATH="${HOME}/Library/Python/3.9/bin"
 
 export PATH="${BREW_PATH}:${PYTHON_PATH}:${HOME_PATH}:${PATH}"
