@@ -3,7 +3,7 @@ alias dir='eza -lg --icons=auto --time-style=long-iso'
 alias rm='rm -i'
 less() {
   if [[ "$1" =~ \.(md|markdown)$ ]] && command -v glow &>/dev/null; then
-    glow "$@"
+    glow -p "$@"
   else
     command less -i -M -R "$@"
   fi
