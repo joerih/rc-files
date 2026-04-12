@@ -9,6 +9,8 @@ less() {
   fi
 }
 alias grep='grep --color=auto'
+alias vi='nvim'
+alias vimdiff='nvim -d'
 alias tiga='tig --all'
 alias df='duf -only local'
 alias du='du -hs'
