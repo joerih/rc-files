@@ -4,6 +4,9 @@ autoload -U colors && colors
 # Tell zsh to not highlight pasted text.
 zle_highlight=('paste:none')
 
+# Colors for ls, eza and tree.
+export LS_COLORS="di=1;34:ln=1;36:so=1;33:pi=1;35:ex=1;32:bd=40;33;1:cd=40;33;1:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:*.tar=1;31:*.tgz=1;31:*.arc=1;31:*.arj=1;31:*.taz=1;31:*.lha=1;31:*.lz4=1;31:*.lzh=1;31:*.lzma=1;31:*.tlz=1;31:*.txz=1;31:*.tzo=1;31:*.t7z=1;31:*.zip=1;31:*.z=1;31:*.dz=1;31:*.gz=1;31:*.lrz=1;31:*.lz=1;31:*.lzo=1;31:*.xz=1;31:*.bz2=1;31:*.bz=1;1;31:*.tz=1;31:*.deb=1;31:*.rpm=1;31:*.jar=1;31:*.war=1;31:*.ear=1;31:*.sar=1;1;31:*.rar=1;*.iso=1;31:*.udf=1;31:*.img=1;31:*.dmg=1;31:*.mp3=1;35:*.ogg=1;35:*.flac=1;35:*.m4a=1;35:*.wav=1;35:*.aac=1;35:*.wma=1;35:*.aiff=1;35:*.ape=1;35:*.opus=1;35:*.mp4=1;35:*.mkv=1;35:*.avi=1;35:*.mov=1;35:*.wmv=1;35:*.flv=1;35:*.webm=1;35:*.mpg=1;35:*.mpeg=1;35:*.gif=1;35:*.jpg=1;35:*.jpeg=1;35:*.png=1;35:*.bmp=1;35:*.tiff=1;35:*.tif=1;35:*.webp=1;35:*.heic=1;35:*.ico=1;35:*.svg=1;35:*.pdf=1;35:*.doc=1;36:*.docx=1;36:*.xls=1;36:*.xlsx=1;36:*.ppt=1;36:*.pptx=1;36:*.odt=1;36:*.ods=1;36:*.odp=1;36:*.md=1;33:*.txt=1;33:*.log=1;33:*.conf=1;33:*.json=1;33:*.xml=1;33:*.toml=1;33:*.ini=1;33:*.sh=1;37:*.bash=1;37:*.zsh=1;37:*.fish=1;37:*.py=1;37:*.pl=1;37:*.rb=1;37:*.js=1;37:*.ts=1;37:*.go=1;37:*.c=1;37:*.cpp=1;37:*.h=1;37:*.hpp=1;37:*.java=1;37:*.class=1;37:*.php=1;37:*.html=1;37:*.css=1;37:*.scss=1;37:*.less=1;37:*.vue=1;37:*.jsx=1;37:*.tsx=1;37:*.rs=1;37:*.swift=1;37:*.kt=1;37:*.lua=1;37:*.r=1;37:*.jl=1;37:*.ex=1;37:*.exs=1;37:*.clj=1;37:*.cljs=1;37:*.scm=1;37:*.lisp=1;37:*.el=1;37:*.hs=1;37:*.lhs=1;37:*.erl=1;37:*.hrl=1;37:*.ml=1;37:*.mli=1;37:*.fs=1;37:*.fsi=1;37:*.fsscript=1;37:*.ps1=1;37:*.psm1=1;37:*.psd1=1;37:*.bat=1;37:*.cmd=1;1;37:*.vbs=1;37:*.plz=1;37:*Jenkinsfile=1;37:*.yml=1;37:*.yaml=1;37:*.groovy=1;37"
+
 # Color definitions for the prompt.
 export PROMPT_COLOR_DEFAULT="%{$fg[default]%}"
 export PROMPT_COLOR_BLACK="%{$fg[black]%}"
