@@ -28,7 +28,7 @@ function set_prompt()
    local PROMPT_HOSTNAME="${PROMPT_COLOR_BLUE}${HOSTNAME,,}${PROMPT_COLOR_DEFAULT}•"
 
    if git_is_repository; then
-      local GIT_BRANCH=$(git_get_branch)
+      local GIT_BRANCH=$(truncate_middle "$(git_get_branch)")
       if [ -n "$GIT_BRANCH" ]; then
          local PROMPT_GIT="${PROMPT_COLOR_CYAN}${GIT_BRANCH}${PROMPT_COLOR_DEFAULT}"
       else
@@ -56,9 +56,23 @@ function set_prompt()
       #fi
    fi
 
-   local PROMPT_DIRECTORY="${PROMPT_COLOR_YELLOW}\w"
+   local PROMPT_DIRECTORY="${PROMPT_COLOR_YELLOW}$(truncate_middle "${PWD/#$HOME/~}")"
 
    PS1="${PROMPT_SCREEN}${PROMPT_COLOR_DEFAULT}❲${PROMPT_USERNAME}${PROMPT_HOSTNAME}${PROMPT_GIT}${PROMPT_DIRECTORY}${PROMPT_COLOR_DEFAULT}❳ "
+}
+
+function truncate_middle()
+{
+   local str="$1"
+   local max=30
+   local len=${#str}
+   if (( len > max )); then
+      local keep=$(( (max - 1) / 2 ))
+      local tail_keep=$(( max - 1 - keep ))
+      echo "${str:0:$keep}(…)${str:$((len - tail_keep))}"
+   else
+      echo "$str"
+   fi
 }
 
 # Set the prompt definition.
