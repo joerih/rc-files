@@ -22,7 +22,7 @@ PROMPT_COLOR_CYAN="\[${COLOR_CYAN}\]"
 PROMPT_COLOR_WHITE="\[${COLOR_WHITE}\]"
 
 # Set colors for grep.
-export GREP_COLOR='1;33'
+export GREP_COLOR='mt=1;33'
 
 # Set colors for man pages.
 #  0 - black
