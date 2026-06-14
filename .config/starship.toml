@@ -1,0 +1,84 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭╴](fg:color_default_text)\
+$os\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$fill\
+$status\
+$line_break[╰╴➤ ](fg:color_default_text)"""
+
+add_newline = true
+
+palette = 'starship'
+
+[palettes.starship]
+color_pill = "#2E3436"
+color_default_text = "#B2B2B2"
+color_default_background = "#000000"
+color_black = '#2E3436'
+color_red = '#CC0000'
+color_green = '#4E9A06'
+color_yellow = '#C4A000'
+color_blue = '#3465A4'
+color_magenta = '#75507B'
+color_cyan = '#06989A'
+color_white = '#D3D7CF'
+color_bright_black = '#555753'
+color_bright_red = '#EF2929'
+color_bright_green = '#8AE234'
+color_bright_yellow = '#FCE94F'
+color_bright_blue = '#729FCF'
+color_bright_magenta = '#AD7FA8'
+color_bright_cyan = '#34E2E2'
+color_bright_white = '#EEEEEC'
+
+[username]
+style_user = "fg:color_green bg:color_pill"
+style_root = "fg:color_red bg:color_pill"
+format = '[[](fg:color_pill)[  $user]($style)[](fg:color_pill)[ ]()]()'
+
+[os]
+disabled = false
+style = "fg:color_magenta bg:color_pill"
+format = '[[](fg:color_pill)[$symbol]($style)[](fg:color_pill)[ ]()]()'
+
+[os.symbols]
+Windows = "󰍲 "
+Macos = "󰀵 "
+Debian = "󰌽 "
+
+[hostname]
+ssh_only = false
+style = "fg:color_blue bg:color_pill"
+format = '[[](fg:color_pill)[󰍹  $hostname]($style)[](fg:color_pill)[ ]()]()'
+
+[directory]
+truncation_length=8
+truncate_to_repo=false
+style = "fg:color_yellow bg:color_pill"
+format = '[[](fg:color_pill)[  $path]($style)[](fg:color_pill)[ ]()]()'
+
+[git_branch]
+symbol = " "
+ignore_branches=['rc-files-linux','rc-files-macos','rc-files-gitbash']
+style = "fg:color_cyan bg:color_pill"
+format = '[[](fg:color_pill)[$symbol $branch]($style)[](fg:color_pill)[ ]()]()'
+
+[status]
+disabled = false
+style = 'bg:color_pill'
+success_symbol = "[󰄬 ](fg:color_green bg:color_pill)"
+symbol = "[󰅖 ](fg:color_red bg:color_pill)"
+format = '[[ ]()[](fg:color_pill)[$symbol]($style)[](fg:color_pill)[ ]()]()'
+
+[fill]
+style = 'gray'
+symbol = '─'
+
+[line_break]
+disabled = false
+
