@@ -10,6 +10,7 @@ config.pane_focus_follows_mouse = true
 config.check_for_updates = false
 config.quick_select_patterns = {
   'git push --set-upstream .*$',
+  'claude --resume [^\\s]+',
 }
 
 -- Appearance
