@@ -52,7 +52,6 @@ Macos = "󰀵 "
 Debian = "󰌽 "
 
 [hostname]
-ssh_only = false
 style = "fg:color_blue bg:color_pill"
 format = '[[](fg:color_pill)[󰍹  $hostname]($style)[](fg:color_pill)[ ]()]()'
 
