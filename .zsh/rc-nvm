@@ -1,8 +1,43 @@
-export NVM_DIR="$HOME/.nvm"
+lazy_nvm()
+{
+  unset -f nvm node npm npx pnpm
 
-# Load nvm
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+  export NVM_DIR="$HOME/.nvm"
 
-# Load nvm bash_completion
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  # Load nvm
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
+  # Load nvm bash_completion
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+}
+
+nvm()
+{
+  lazy_nvm
+  nvm $@
+}
+
+node()
+{
+  lazy_nvm
+  node $@
+}
+
+npm()
+{
+  lazy_nvm
+  npm $@
+}
+
+npx()
+{
+  lazy_nvm
+  npx $@
+}
+
+pnpm()
+{
+  lazy_nvm
+  pnpm $@
+}
 
